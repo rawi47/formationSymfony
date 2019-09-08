@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% block title %} Tasks {% endblock title %}
+{% block body %}
+
+<a href="{{ path("product_index")}}">
+  <button type="button" class="btn btn-info">Retour</button>
+</a>
+{{ form_start (form, {'attr': {'novalidate': 'novalidate'}}) }}
+<div class="form-group">
+  {{ form_row(form.name) }}
+</div>
+<div class="form-group">
+  {{ form_errors(form) }}
+</div>
+<div class="form-group">
+  {{ form_row(form.price) }}
+</div>
+<div class="form-group">
+  {{ form_row(form.category) }}
+</div>
+
+<div class="form-group">
+  {{ form_row(form.user) }}
+</div>
+{{ form_end (form) }}
+{% endblock body %}

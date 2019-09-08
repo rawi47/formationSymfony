@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+{% block title %} Show {% endblock title %}
+{% block body %}
+<a href="{{ path("product_index")}}">
+<button type="button" class="btn btn-info">Retour</button>
+</a>
+<p> Nom : {{ product.name }}  </p>
+<p> Prix : {{ product.price }}  </p>
+{% endblock body %}

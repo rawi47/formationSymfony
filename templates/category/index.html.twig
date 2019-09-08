@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Category index{% endblock %}
+
+{% block body %}
+
+<a href="{{ path("category_new")}}">
+    <button type="button" class="btn btn-warning">Ajouter</button>
+</a>
+<table class="table table -bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for category in categories %}
+        <tr>
+            <td><a href="{{ path('category_show', {'id': category.id}) }}">{{ category.id }}</a></td>
+            <td>{{ category.name }}</td>
+            <td>
+               
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="3">no records found</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
