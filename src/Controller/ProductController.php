@@ -6,7 +6,7 @@ use App\Entity\Product;
 use App\Entity\Category;
 use App\Entity\Taxe;
 use App\Entity\User;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -95,7 +95,10 @@ class ProductController extends Controller
                 // uses the User.username property as the visible option string
                 'choice_label' => 'name',
                 "label" => "Taxe ", 
-                "attr" => ['class' => "form-control"],
+                "attr" => [
+                    'class' => "form-control selectpicker",
+                    'multiple' => true
+                ],
                 'placeholder' => "Shoose taxe ..."
                 // used to render a select box, check boxes or radios
                 // 'multiple' => true,
@@ -163,7 +166,7 @@ function edit(Request $request,Product $product) {
             // uses the User.username property as the visible option string
             'choice_label' => 'name',
             "label" => "Taxes ", 
-            "attr" => ['class' => "form-control"],
+            "attr" => ['class' => "form-control selectpicker"],
             'placeholder' => "Shoose taxe ..."
             // used to render a select box, check boxes or radios
             // 'multiple' => true,

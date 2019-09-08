@@ -6,4 +6,10 @@
 </a>
 <p> Nom : {{ product.name }}  </p>
 <p> Prix : {{ product.price }}  </p>
+<p> taxes : 
+{% for taxe in product.taxes %}
+{{ taxe.name }} {{ taxe.rate }}
+{% endfor %}
+</p>
+
 {% endblock body %}
