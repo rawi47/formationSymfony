@@ -162,7 +162,7 @@ function edit(Request $request,Product $product) {
             'multiple' => true,
             // uses the User.username property as the visible option string
             'choice_label' => 'name',
-            "label" => "Taxe ", 
+            "label" => "Taxes ", 
             "attr" => ['class' => "form-control"],
             'placeholder' => "Shoose taxe ..."
             // used to render a select box, check boxes or radios
