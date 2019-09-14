@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Doccument{% endblock %}
+
+{% block body %}
+    <h1>Edit Doccument</h1>
+
+    {{ include('doccument/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('doccument_index') }}">back to list</a>
+
+    {{ include('doccument/_delete_form.html.twig') }}
+{% endblock %}

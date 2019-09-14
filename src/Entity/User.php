@@ -28,9 +28,15 @@ class User
      */
     private $products;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Doccument", mappedBy="user")
+     */
+    private $doccuments;
+
     public function __construct ()
     {
         $this -> products = new ArrayCollection ();
+        $this->doccuments = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -75,6 +81,37 @@ class User
             // set the owning side to null (unless already changed)
             if ($product->getUser() === $this) {
                 $product->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Doccument[]
+     */
+    public function getDoccuments(): Collection
+    {
+        return $this->doccuments;
+    }
+
+    public function addDoccument(Doccument $doccument): self
+    {
+        if (!$this->doccuments->contains($doccument)) {
+            $this->doccuments[] = $doccument;
+            $doccument->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDoccument(Doccument $doccument): self
+    {
+        if ($this->doccuments->contains($doccument)) {
+            $this->doccuments->removeElement($doccument);
+            // set the owning side to null (unless already changed)
+            if ($doccument->getUser() === $this) {
+                $doccument->setUser(null);
             }
         }
 
